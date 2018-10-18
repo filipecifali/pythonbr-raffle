@@ -25,7 +25,7 @@ SECRET_KEY = 'dfg9!4ufqw_-rnzw+npq7k96&%2+u4fbmqih2x2gv20q!d_pip'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['web']
 
 
 # Application definition
