@@ -4,8 +4,10 @@ services:
     image: nginx:latest
     container_name: ng01
     ports:
-      - "8000:8000"
+      - "80:8000"
+      - "443:8001"
     volumes:
+      - /etc/letsencrypt:/etc/nginx/letsencrypt
       - ./raffle:/src
       - ./config/nginx:/etc/nginx/conf.d
     depends_on:
