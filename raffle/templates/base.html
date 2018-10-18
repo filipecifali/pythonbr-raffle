@@ -9,6 +9,22 @@
 		<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.0-rc.4/dist/js/foundation.min.js" integrity="sha256-nIta+uoDuxOdt7vhkwgWiMrUOAUOpw4yHSqxX8hzH9c= sha384-Uoy5+aFrgdd+EoziVzbMHQ/zZ4gXO56krCBSyaGNwfj77SOXc8g9jpGyjD+rgfkC sha512-WsTORPRlVaKlvQ+H5IqbHZJLWKmPevk9/OIJACkg7y4j8aRlf+CeFEHpfmdByM0nGm51CSZnHHQP4Cun42BOsQ==" crossorigin="anonymous"></script>
 	</head>
 	<body>
+		{% block messages %}
+			{% if messages %}
+				<div class="grid-container">
+					<div class="grid-x grid-padding-x">
+						<div class="cell">
+							{% for message in messages %}
+								<div class="callout {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}alert{% else %}primary{% endif %}">
+									{{ message }}
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		{% endblock %}
+
 		{% block content %}{% endblock content %}
 	</body>
 </html>

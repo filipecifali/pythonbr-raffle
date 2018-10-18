@@ -1,7 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<h1>Registration</h1>
+	<div class="grid-container">
+		<div class="grid-x grid-margin-x">
+			<div class="cell">
+				<h1>Registration</h1>
+			</div>
+		</div>
+	</div>
 
+	<form action="{% url 'register' %}" method="post" accept-charset="utf-8">
+		{% csrf_token %}
+		<div class="grid-container">
+			<div class="grid-x grid-padding-x">
+				<div class="cell">
+					<label>Seu nome:
+						<input type="text" value="" name="name" id=""/>
+					</label>
+				</div>
 
+				<div class="cell">
+					<label>
+						Email utilizado no registro do evento:
+						<input type="text" value="" name="email" id="email" aria-describedby="emailInfo"/>
+					</label>
+					<p class="help-text" id="emailInfo">
+						O sorteio &eacute; feito a partir dos emails
+						utilizados durante o cadastro do evento e depois validados
+						com os usados nesse sorteio.
+					</p>
+				</div>
+
+				<div class="cell">
+					<input type="submit" class="button" value="Registrar">
+				</div>
+			</div>
+		</div>
+	</form>
 {% endblock content %}
