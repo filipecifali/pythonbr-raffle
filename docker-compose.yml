@@ -12,8 +12,10 @@ services:
       - ./config/nginx:/etc/nginx/conf.d
     depends_on:
       - web
+    restart: always
   web:
     build: .
+    restart: always
     container_name: dg01
     command: bash -c "pwd && ls -la && python manage.py makemigrations && python manage.py migrate && gunicorn -w 4 raffle.wsgi:application -b 0.0.0.0:8000"
     volumes:
