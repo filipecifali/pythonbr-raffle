@@ -13,13 +13,14 @@ class Command(BaseCommand):
                             default=',')
         parser.add_argument('-e', '--email-pos',
                             dest='position',
+                            type=int,
                             help='Field position for the email, starts on 0')
         parser.add_argument('filename',
                             metavar='FILENAME',
                             nargs=1)
 
     def handle(self, *args, **options):
-        with open(options['filename'], 'r') as origin:
+        with open(options['filename'][0], 'r') as origin:
             data_reader = csv.reader(origin, delimiter=options['separator'])
             for row in data_reader:
                 email = row[options['position']]
