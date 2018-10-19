@@ -1,4 +1,7 @@
-FROM tiangolo/uwsgi-nginx-flask:python3.7
-
-COPY ./app /app
-COPY database.json /
+FROM python:3
+ENV PYTHONUNBUFFERED 1
+VOLUME /src
+WORKDIR /src
+ADD requirements.txt /src/
+RUN pip install -r requirements.txt
+ADD . /src/
