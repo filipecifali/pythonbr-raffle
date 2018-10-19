@@ -8,15 +8,15 @@ services:
       - "443:8001"
     volumes:
       - /etc/letsencrypt:/etc/nginx/letsencrypt
-      - ./raffle:/src
+      - ./:/src
       - ./config/nginx:/etc/nginx/conf.d
     depends_on:
       - web
   web:
     build: .
     container_name: dg01
-    command: bash -c "python manage.py makemigrations && python manage.py migrate && gunicorn -w 4 raffle.wsgi:application -b 0.0.0.0:8000"
+    command: bash -c "pwd && ls -la && python manage.py makemigrations && python manage.py migrate && gunicorn -w 4 raffle.wsgi:application -b 0.0.0.0:8000"
     volumes:
-      - ./raffle:/src
+      - ./:/src
     expose:
       - "8000"
