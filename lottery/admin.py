@@ -21,7 +21,7 @@ class PersonAdmin(admin.ModelAdmin):
             registered = Registration.objects.order_by('?').first()
             try:
                 selected = Person.objects \
-                    .filter(email=registered.email) \
+                    .filter(email__iexact=registered.email) \
                     .first()
                 self.message_user(
                     request,
@@ -32,12 +32,17 @@ class PersonAdmin(admin.ModelAdmin):
             except (Person.DoesNotExist, AttributeError):
                 # Attribute error happens when filter finds no records,
                 # returns nNone and we try to print `.name` out of it.
-                self.message_user(
-                    request,
-                    '{} selected, but not in the raffle'.format(
-                        registered.email))
+                # self.message_user(
+                #     request,
+                #     '{} selected, but not in the raffle'.format(
+                #         registered.email))
+                pass
         return HttpResponseRedirect(request.META["HTTP_REFERER"])
 
 
+class RegistrationAdmin(admin.ModelAdmin):
+    fields = ['pk']
+
+
 admin.site.register(Person, PersonAdmin)
-admin.site.register(Registration)
+admin.site.register(Registration, RegistrationAdmin)
