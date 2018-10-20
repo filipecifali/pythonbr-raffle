@@ -12,15 +12,33 @@ $ docker-compose build
 
 # Run
 
-## Foreground
+## Development
+
+### Foreground
+
+```sh
+$ docker-compose -f dev.docker-compose.yml up
+```
+
+### Background
+
+```sh
+$ docker-compose -f dev.docker-compose.yml up -d
+```
+
+## Production
+
+### Foreground
+
 ```sh
 $ docker-compose up
 ```
-## Background
+
+### Background
+
 ```sh
 $ docker-compose up -d
 ```
-
 
 # Import CSV
 
@@ -28,5 +46,3 @@ $ docker-compose up -d
 $ docker run -v /home/pythonbr-raffle:/src -it pythonbrraffle_web /bin/bash
 # python manage.py import -s ',' -e 8 "sample.csv"
 ```
-
-
