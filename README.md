@@ -12,9 +12,15 @@ $ docker-compose build
 
 # Run
 
+## Foreground
 ```sh
 $ docker-compose up
 ```
+## Background
+```sh
+$ docker-compose up -d
+```
+
 
 # Import CSV
 
