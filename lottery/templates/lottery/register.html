@@ -37,4 +37,36 @@
 			</div>
 		</div>
 	</form>
+	<style>
+	.boxer {
+		display: table;
+		border-collapse: collapse;
+	}
+
+	.boxer .box-row {
+		display: table-row;
+	}
+
+	.boxer .box {
+		display: table-cell;
+		text-align: left;
+		vertical-align: top;
+		border: 1px solid black;
+	}
+	</style>
+	<div align="center">
+	<div class="boxer">
+		<div class="box-row">
+			<div class="box"><img alt='Use A Cabeca Python' src='static/img/use-a-cabeca-python.jpg' width="200" height="100"></div>
+			<div class="box"><img alt='Algoritmos para Leigos' src='static/img/algoritmos-para-leigos.jpg' width="200" height="100"></div>
+			<div class="box"><img alt='Comecando a programar em Pytho para leigos' src='static/img/comecando-a-programar-em-python-para-leigos.jpg' width="200" height="100"></div>
+		</div>
+		<div class="box-row">
+			<div class="box"><img alt='Data Science do Zero' src='static/img/data-science-do-zero.jpg' width="200" height="100"></div>
+			<div class="box"><img alt='Introducao a programacao com Python' src='static/img/introducao-a-programacao-com-python.jpg' width="200" height="100"></div>
+			<div class="box"><img alt='Data Science para Negocios' src='static/img/data-science-para-negocios.jpg' width="200" height="100"></div>
+		</div>
+	</div>
+	</div>
+
 {% endblock content %}
